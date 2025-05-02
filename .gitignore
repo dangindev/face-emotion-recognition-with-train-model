@@ -1,0 +1,21 @@
+# Môi trường ảo Python
+venv/
+
+# Files Python caches/compiled
+*.pyc
+__pycache__/
+
+# File biến môi trường
+.env
+
+# Thư mục instance (thường chứa DB SQLite)
+instance/
+
+# Database file
+*.db
+*.sqlite
+*.sqlite3
+
+# Các file có thể được tạo ra (model AI, log...)
+*.h5
+*.log

@@ -1,0 +1,36 @@
+<!-- app/templates/login.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6"> <!-- Giới hạn chiều rộng form trên màn hình vừa và lớn -->
+        <h2 class="text-center mb-4">Đăng nhập</h2>
+        <div class="card">
+            <div class="card-body">
+                <form method="post" novalidate>
+                    <div class="mb-3"> <!-- Margin bottom 3 -->
+                        <label for="username" class="form-label">Tên đăng nhập:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Mật khẩu:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <!--
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me">
+                        <label class="form-check-label" for="remember_me">Nhớ đăng nhập</label>
+                    </div>
+                     -->
+                    <div class="d-grid"> <!-- Làm nút submit chiếm hết chiều rộng -->
+                       <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                    </div>
+                </form>
+            </div>
+             <div class="card-footer text-center">
+                 Chưa có tài khoản? <a href="{{ url_for('register') }}">Đăng ký tại đây</a>
+             </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

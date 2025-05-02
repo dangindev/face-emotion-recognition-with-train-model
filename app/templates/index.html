@@ -1,0 +1,43 @@
+<!-- app/templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="hero-section">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Chào mừng, {{ current_user.username }}!</h1>
+            <p class="col-md-8 fs-4">Đây là khu vực điều khiển của bạn. Hãy chuẩn bị để bắt đầu phiên học tập trung và theo dõi cảm xúc.</p>
+
+            <!-- === PHẦN CHỌN MODEL === -->
+            <div class="mb-4" id="model-selector-area">  <!-- Tăng khoảng cách dưới -->
+                <label for="modelSelect" class="form-label fw-bold fs-5">Chọn mô hình nhận dạng:</label> <!-- Tăng cỡ chữ label -->
+                <select class="form-select form-select-lg w-auto d-inline-block" id="modelSelect" style="max-width: 300px;"> <!-- Giới hạn chiều rộng và hiển thị inline -->
+                    <!-- Value 'custom' và 'pretrained' phải khớp với key dùng ở services.py -->
+                    <option value="custom" selected>Model Tự Train (Custom)</option>
+                    <option value="deepface">Thư viện DeepFace (Pre-trained)</option>
+                    <!-- Thêm các <option> khác nếu bạn có nhiều model hơn -->
+                    <!-- ví dụ: <option value="model_xyz">Model XYZ Đặc Biệt</option> -->
+                </select>
+                <small class="form-text text-muted d-block mt-1">Chọn model trước khi bật webcam.</small> <!-- Hiển thị ghi chú dưới -->
+            </div>
+            <!-- ======================== -->
+
+            <div id="webcam-controls"> <!-- Bỏ class mt-4 ở đây nếu muốn gần hơn -->
+                <button id="startButton" class="btn btn-success btn-lg me-2">Bật Webcam</button>
+                <button id="stopButton" class="btn btn-danger btn-lg" disabled>Tắt Webcam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khu vực webcam và trạng thái giữ nguyên -->
+    <div id="webcam-area" class="mt-4" style="display: none;"> <!-- Thêm lại mt-4 ở đây -->
+         <video id="webcamVideo" playsinline autoplay width="640" height="480"></video>
+         <div class="mt-3 status-text">
+             <p><strong>Trạng thái:</strong> <span id="status" class="badge bg-secondary">Chưa kết nối</span></p>
+             <p><strong>Cảm xúc hiện tại:</strong> <span id="current-emotion" class="badge bg-info">...</span></p>
+             <p><strong>Mức độ tập trung:</strong> <span id="current-attention" class="badge bg-primary">...</span></p>
+         </div>
+    </div>
+    <canvas id="canvas" style="display:none;"></canvas>
+</div>
+{% endblock %}

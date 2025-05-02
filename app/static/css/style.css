@@ -1,0 +1,316 @@
+/* app/static/css/style.css */
+
+/* --- Variables --- */
+:root {
+    --primary-color: #3B82F6; /* Blue-500 */
+    --primary-hover-color: #2563EB; /* Blue-600 */
+    --secondary-color: #6B7280; /* Gray-500 */
+    --background-color: #F9FAFB; /* Gray-50 */
+    --card-bg-color: #FFFFFF; /* White */
+    --text-color: #1F2937; /* Gray-800 */
+    --text-light-color: #4B5563; /* Gray-600 */
+    --border-color: #E5E7EB; /* Gray-200 */
+    --success-color: #10B981; /* Green-500 */
+    --danger-color: #EF4444; /* Red-500 */
+    --warning-color: #F59E0B; /* Amber-500 */
+    --info-color: #3B82F6; /* Blue-500 */
+    --navbar-bg: #111827; /* Gray-900 */
+    --navbar-text: #E5E7EB; /* Gray-200 */
+    --navbar-hover-text: #FFFFFF; /* White */
+    --border-radius-sm: 0.375rem; /* 6px */
+    --border-radius-md: 0.5rem;   /* 8px */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* Subtle shadow */
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Inter', sans-serif; /* Apply Inter font */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem; /* 16px base */
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600; /* Semi-bold headings */
+    color: var(--text-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--primary-hover-color);
+}
+
+/* --- Utility Overrides (Bootstrap) --- */
+.container, .container-fluid {
+    max-width: 1140px; /* Optional: limit max width for very large screens */
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--navbar-bg);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: var(--shadow-sm); /* Subtle shadow for separation */
+    border: none; /* Remove default border */
+}
+.navbar-brand {
+    font-weight: 700; /* Bold brand */
+    color: var(--navbar-text) !important; /* Ensure color overrides */
+    font-size: 1.25rem;
+}
+.navbar .nav-link {
+    color: var(--navbar-text);
+    font-weight: 500; /* Medium weight */
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease;
+    border-radius: var(--border-radius-sm);
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--navbar-hover-text);
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+}
+.navbar .nav-link.btn { /* Styling for logout button if it's also a nav-link */
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     color: var(--navbar-text);
+}
+.navbar .nav-link.btn:hover {
+     background-color: var(--primary-color);
+     border-color: var(--primary-color);
+     color: white;
+}
+.navbar-toggler {
+     border-color: rgba(255, 255, 255, 0.1);
+}
+.navbar-toggler-icon { /* Make toggler icon white */
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(230, 230, 230, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* --- Forms (Login, Register) --- */
+.form-container {
+    max-width: 450px; /* Narrower form */
+    margin: 3rem auto; /* More top/bottom margin */
+}
+
+.card.form-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Slightly more pronounced shadow */
+    overflow: hidden; /* Ensure consistency with border radius */
+}
+.card.form-card .card-header,
+.card.form-card .card-footer {
+    background-color: #fff; /* White footer/header */
+    border-color: var(--border-color);
+    padding: 1.25rem 1.5rem;
+}
+.card.form-card .card-body {
+    padding: 1.5rem; /* Consistent padding */
+}
+.form-card h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.form-label {
+    font-weight: 500; /* Medium label */
+    margin-bottom: 0.5rem;
+    color: var(--text-light-color);
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem; /* Larger padding */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid var(--border-color);
+    appearance: none;
+    border-radius: var(--border-radius-sm);
+    box-shadow: none; /* Flat */
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+    color: var(--text-color);
+    background-color: #fff;
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-rgb, 59, 130, 246), 0.25); /* Use Bootstrap's focus ring but with our color */
+    /* If you have --primary-color as R,G,B, replace the above rgba */
+    /* For #3B82F6 -> R=59, G=130, B=246 */
+     box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    font-weight: 600; /* Semi-bold buttons */
+    line-height: 1.5;
+    color: var(--text-color);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.65rem 1.25rem; /* Adjusted padding */
+    font-size: 1rem;
+    border-radius: var(--border-radius-sm);
+    box-shadow: none; /* Flat */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: var(--primary-hover-color);
+    border-color: var(--primary-hover-color);
+}
+.btn-primary:disabled {
+     background-color: var(--primary-color);
+     border-color: var(--primary-color);
+     opacity: 0.65;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+}
+.btn-success:hover {
+     color: #fff;
+     background-color: #059669; /* Darker Green */
+     border-color: #059669;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+.btn-danger:hover {
+    color: #fff;
+    background-color: #DC2626; /* Darker Red */
+    border-color: #DC2626;
+}
+.btn-danger:disabled {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    opacity: 0.65;
+}
+
+
+/* --- Index Page Specific --- */
+.hero-section { /* Replace jumbotron */
+    background-color: var(--card-bg-color);
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+}
+
+#webcam-area {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+#webcamVideo {
+    border-radius: var(--border-radius-sm); /* Match other elements */
+    border: 1px solid var(--border-color);
+    display: block; /* Prevent extra space below */
+    margin: 0 auto 1rem auto; /* Center and add space below */
+    max-width: 100%; /* Responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+#status, #current-emotion, #current-attention {
+    font-size: 0.9rem;
+    padding: 0.4em 0.7em;
+}
+.status-text p {
+     margin-bottom: 0.5rem;
+     font-weight: 500;
+}
+.status-text p strong {
+     color: var(--text-light-color);
+     min-width: 150px; /* Align badges roughly */
+     display: inline-block;
+}
+
+
+/* --- Alert Messages --- */
+.alert {
+    border-radius: var(--border-radius-sm);
+    border-width: 0px; /* Often better without border for flat */
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-sm);
+    font-weight: 500;
+}
+.alert-success { background-color: #D1FAE5; color: #065F46; } /* Tailwind Green 100/800 */
+.alert-danger { background-color: #FEE2E2; color: #991B1B; }  /* Tailwind Red 100/800 */
+.alert-warning { background-color: #FEF3C7; color: #92400E; } /* Tailwind Amber 100/800 */
+.alert-info { background-color: #DBEAFE; color: #1E40AF; }   /* Tailwind Blue 100/800 */
+
+.alert-dismissible .btn-close {
+    padding: 1.15rem 1.25rem; /* Make close button easier to click */
+}
+
+/* --- History Page Accordion --- */
+.accordion-button {
+    font-weight: 600;
+}
+.accordion-button:not(.collapsed) {
+    color: var(--primary-color);
+    background-color: rgba(59, 130, 246, 0.1); /* Light primary background when open */
+    box-shadow: inset 0 -1px 0 var(--border-color);
+}
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25); /* Focus ring */
+    border-color: transparent; /* Remove default focus border */
+}
+.accordion-item {
+     background-color: var(--card-bg-color);
+     border: 1px solid var(--border-color);
+     border-radius: var(--border-radius-sm);
+     margin-bottom: 0.5rem; /* Space between items */
+     overflow: hidden; /* Helps with border radius */
+}
+.accordion-header { /* Remove bottom border if the item is open */
+    border-bottom: 0;
+}
+.accordion-collapse { /* Add subtle border inside when open */
+     border-top: 1px solid var(--border-color);
+}
+.accordion-body {
+     background-color: #F9FAFB; /* Slightly different background for body */
+     padding: 1.25rem;
+}
+
+
+/* --- Footer --- */
+footer {
+    padding: 2rem 0;
+    color: var(--text-light-color);
+    font-size: 0.9rem;
+}
