@@ -17,5 +17,4 @@ instance/
 *.sqlite3
 
 # Các file có thể được tạo ra (model AI, log...)
-*.h5
 *.log

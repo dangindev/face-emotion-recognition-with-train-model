@@ -1,0 +1,20 @@
+Flask>=2.0,<3.0 # >=2.0 needed for some modern features, <3.0 for broader compatibility maybe
+Flask-SQLAlchemy>=2.5,<3.1 # Common range
+Flask-Login>=0.5,<0.7      # Common range
+Werkzeug>=2.0,<3.1          # Tied somewhat to Flask version
+
+# AI, ML, Image - Make sure versions are compatible if possible
+tensorflow>=2.10             # Choose a version compatible with DeepFace and your system/GPU
+opencv-python>=4.5           # Standard OpenCV package
+deepface>=0.0.75             # Use a recent version
+numpy>=1.21                 # Fundamental numeric library
+Pillow>=9.0                 # Image processing library (PIL fork)
+
+# Training Script dependencies (Optional for running the Flask app, but needed for train_model.py)
+pandas>=1.3                  # Data handling
+scikit-learn>=1.0            # ML utilities
+matplotlib>=3.4              # Plotting
+
+# Specify other libraries if you added them (e.g., python-dotenv, gunicorn)
+python-dotenv
+gunicorn

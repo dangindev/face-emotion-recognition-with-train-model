@@ -92,8 +92,36 @@ The dataset is organized into `train` and `test` directories, each containing su
 - Sad
 - Surprise
 
-## Model Training
-To train the model, use the `train_model.py` script. The training history and performance metrics will be saved as `training_history_imgfolder.png`.
+## Model Training and Results
+To train the model, use the `train_model.py` script. The training history and performance metrics are visualized below:
+
+### Training and Validation Accuracy
+![Training and Validation Accuracy](app/static/images/history.png)
+
+### Training and Validation Loss
+The model shows consistent improvement in accuracy and reduction in loss over epochs, as seen in the graphs above.
+
+If you prefer to use the pre-trained model directly, the application includes a pre-trained model (`emotion_cnn_model.h5`) for immediate use. This ensures you can run the application without retraining the model.
+
+## Quick Start Guide
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/emotion_focus_app.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd emotion_focus_app
+   ```
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run the application:
+   ```bash
+   python run.py
+   ```
+5. Open your browser and navigate to `http://127.0.0.1:5000`.
+6. Register or log in to start using the app with the pre-trained model.
 
 ## Screenshots
 ### Home Page
@@ -104,7 +132,6 @@ To train the model, use the `train_model.py` script. The training history and pe
 
 ### History Analysis
 ![History Analysis](app/static/images/history.png)
-
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
