@@ -113,4 +113,4 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contact
-For any inquiries, please contact [your-email@example.com](haidang29productions@gmail.com).
+For any inquiries, please contact [haidang29productions@gmail.com](haidang29productions@gmail.com).
